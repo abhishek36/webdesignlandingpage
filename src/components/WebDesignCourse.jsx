@@ -488,7 +488,7 @@ const WebDesignCourse = () => {
       {/* Header */}
       <header style={styles.header}>
         <nav style={styles.nav}>
-          <div style={styles.logo}>WebDesign Pro</div>
+          <div style={styles.logo}>WebDesign</div>
           <button
             style={styles.ctaBtn}
             onClick={() => scrollToSection("enrollment")}
