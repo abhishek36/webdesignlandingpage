@@ -565,22 +565,86 @@ const WebDesignCourse = () => {
     <div style={styles.container}>
       {/* Header */}
       <header style={styles.header}>
-        <nav style={styles.nav}>
-          <div style={styles.logo}>WebDesign</div>
-          <button
-            style={styles.ctaBtn}
-            onClick={() => scrollToSection("enrollment")}
-            onMouseOver={(e) => {
-              e.target.style.transform = "translateY(-2px)";
-              e.target.style.boxShadow = "0 6px 20px rgba(102, 126, 234, 0.6)";
-            }}
-            onMouseOut={(e) => {
-              e.target.style.transform = "translateY(0)";
-              e.target.style.boxShadow = "0 4px 15px rgba(102, 126, 234, 0.4)";
+        <nav
+          style={{
+            ...styles.nav,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "1rem 1rem",
+          }}
+        >
+          <div
+            style={{
+              ...styles.logo,
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
             }}
           >
-            Enroll Now
-          </button>
+            <span style={{ color: "#667eea", fontSize: "1.5em" }}>🎨</span>
+            <span style={{ fontSize: "1.2rem" }}>WebDesign</span>
+            {window.innerWidth > 768 && (
+              <span
+                style={{
+                  background: "linear-gradient(45deg, #FF6B6B, #4ECDC4)",
+                  padding: "4px 8px",
+                  borderRadius: "12px",
+                  fontSize: "0.7em",
+                  color: "white",
+                  marginLeft: "8px",
+                }}
+              >
+                2025
+              </span>
+            )}
+          </div>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            {window.innerWidth > 768 && (
+              <span
+                style={{
+                  color: "#667eea",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease",
+                  fontSize: "1rem",
+                  marginRight: "20px",
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.color = "#4ECDC4";
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.color = "#667eea";
+                }}
+              >
+                🔥 Limited Seats!
+              </span>
+            )}
+            <button
+              style={{
+                ...styles.ctaBtn,
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                justifyContent: "center",
+                padding: window.innerWidth <= 768 ? "8px 16px" : "12px 24px",
+                fontSize: window.innerWidth <= 768 ? "0.9rem" : "1rem",
+              }}
+              onClick={() => scrollToSection("enrollment")}
+              onMouseOver={(e) => {
+                e.target.style.transform = "translateY(-2px) scale(1.05)";
+                e.target.style.boxShadow =
+                  "0 8px 25px rgba(102, 126, 234, 0.8)";
+              }}
+              onMouseOut={(e) => {
+                e.target.style.transform = "translateY(0) scale(1)";
+                e.target.style.boxShadow =
+                  "0 4px 15px rgba(102, 126, 234, 0.4)";
+              }}
+            >
+              <span>✨ Enroll Now</span>
+              <span style={{ fontSize: "1.2em" }}>→</span>
+            </button>
+          </div>
         </nav>
       </header>
 
