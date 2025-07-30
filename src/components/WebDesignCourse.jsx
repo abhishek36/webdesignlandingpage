@@ -409,12 +409,24 @@ const WebDesignCourse = () => {
   ];
 
   const techData = [
-    { name: "HTML5", description: "Modern markup" },
-    { name: "CSS3", description: "Advanced styling" },
-    { name: "JavaScript", description: "Interactive functionality" },
-    { name: "Tailwind CSS", description: "Utility-first framework" },
-    { name: "Bootstrap", description: "Responsive design" },
-    { name: "React.js", description: "Modern web apps" },
+    { name: "HTML5", description: "Modern markup", logo: "/html.png" },
+    { name: "CSS3", description: "Advanced styling", logo: "/css.png" },
+    {
+      name: "JavaScript",
+      description: "Interactive functionality",
+      logo: "/js.png",
+    },
+    {
+      name: "Tailwind CSS",
+      description: "Utility-first framework",
+      logo: "/tailwind.png",
+    },
+    {
+      name: "Bootstrap",
+      description: "Responsive design",
+      logo: "/bootstrap.png",
+    },
+    { name: "React.js", description: "Modern web apps", logo: "/react.png" },
   ];
 
   const detailsData = [
@@ -614,7 +626,9 @@ const WebDesignCourse = () => {
       {/* Why Learn Section */}
       <section style={{ ...styles.section, ...styles.whiteSection }}>
         <div>
-          <h2 style={styles.sectionTitle}>Why Learn Web Design in 2025?</h2>
+          <h2 style={styles.sectionTitle} className="sectiontitle">
+            Why Learn Web Design in 2025?
+          </h2>
           <div style={{ ...styles.grid, ...styles.reasonsGrid }}>
             {reasonsData.map((reason, index) => (
               <div
@@ -644,7 +658,7 @@ const WebDesignCourse = () => {
       {/* Tech Stack */}
       <section style={{ ...styles.section, ...styles.gradientSection }}>
         <div>
-          <h2 style={styles.sectionTitle}>
+          <h2 style={styles.sectionTitle} className="sectiontitle">
             Master These In-Demand Technologies
           </h2>
           <div style={{ ...styles.grid, ...styles.techGrid }}>
@@ -663,6 +677,7 @@ const WebDesignCourse = () => {
                   e.currentTarget.style.transform = "scale(1)";
                 }}
               >
+                <img src={tech.logo} alt="" style={{ marginBottom: "5px" }} />
                 <h3 style={{ fontSize: "1.2rem", marginBottom: "10px" }}>
                   {tech.name}
                 </h3>
@@ -676,7 +691,9 @@ const WebDesignCourse = () => {
       {/* Course Details */}
       <section style={{ ...styles.section, ...styles.whiteSection }}>
         <div>
-          <h2 style={styles.sectionTitle}>Course Details & What You'll Get</h2>
+          <h2 style={styles.sectionTitle} className="sectiontitle">
+            Course Details & What You'll Get
+          </h2>
           <div style={{ ...styles.grid, ...styles.detailsGrid }}>
             {detailsData.map((detail, index) => (
               <div
@@ -741,6 +758,7 @@ const WebDesignCourse = () => {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
+            className="sectiontitle"
           >
             🚀 Transform Your Future with Web Design
           </h2>

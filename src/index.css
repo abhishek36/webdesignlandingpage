@@ -25,4 +25,12 @@
   footer {
     display: none;
   }
+
+  .price_highlight {
+    font-size: 15px !important;
+  }
+
+  .sectiontitle {
+    font-size: 20px !important;
+  }
 }
