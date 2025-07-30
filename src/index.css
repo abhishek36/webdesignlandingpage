@@ -8,3 +8,21 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+@media screen and (max-width: 375px) {
+  .heroTitle {
+    font-size: 28px !important;
+  }
+
+  .form_container {
+    padding: 25px !important;
+  }
+
+  .earlybirdtext {
+    display: none;
+  }
+
+  footer {
+    display: none;
+  }
+}

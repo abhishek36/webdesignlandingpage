@@ -115,6 +115,24 @@ const WebDesignCourse = () => {
       boxShadow: "0 2px 20px rgba(0,0,0,0.1)",
     },
 
+    // New style for price highlight card in details section
+    priceCardHighlight: {
+      background: "linear-gradient(135deg, #ff6a00, #ee0979)",
+      color: "white",
+      padding: "45px 35px",
+      borderRadius: "25px",
+      textAlign: "center",
+      position: "relative",
+      overflow: "hidden",
+      boxShadow: "0 0 20px 5px rgba(238, 9, 121, 0.7)",
+      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      cursor: "pointer",
+    },
+    priceCardHighlightHover: {
+      transform: "scale(1.05)",
+      boxShadow: "0 0 30px 10px rgba(255, 106, 0, 0.9)",
+    },
+
     nav: {
       display: "flex",
       justifyContent: "space-between",
@@ -298,6 +316,7 @@ const WebDesignCourse = () => {
       background: "rgba(255, 255, 255, 0.9)",
       fontSize: "1rem",
       boxSizing: "border-box",
+      color: "#000",
     },
 
     textarea: {
@@ -325,18 +344,29 @@ const WebDesignCourse = () => {
       transition: "all 0.3s ease",
     },
 
-    // Responsive styles
-    "@media (max-width: 768px)": {
-      heroTitle: {
-        fontSize: "2.5rem",
-      },
-      heroText: {
-        fontSize: "1.1rem",
-      },
-      formContainer: {
-        padding: "30px 20px",
-      },
+    // Footer Styles
+    footer: {
+      background: "#2c3e50",
+      color: "white",
+      padding: "20px 2rem",
+      textAlign: "center",
+      fontSize: "0.9rem",
+      marginTop: "40px",
     },
+
+    footerContent: {
+      maxWidth: "1200px",
+      margin: "0 auto",
+    },
+
+    footerLink: {
+      color: "#f39c12",
+      textDecoration: "none",
+      margin: "0 5px",
+      transition: "color 0.3s ease",
+    },
+
+    // Responsive styles
   };
 
   const reasonsData = [
@@ -393,12 +423,18 @@ const WebDesignCourse = () => {
       title: "Course Duration",
       content: (
         <>
-          <strong>8 Weeks Intensive Training</strong>
+          <strong>🔥 3 Months of Transformative Training</strong>
           <br />
-          Classes start: <strong>February 15, 2025</strong>
+          <span style={{ color: "#ffd700" }}>Next Batch Starting:</span>{" "}
+          <strong>September 1, 2025</strong>
           <br />
-          5 Days a week (Mon-Fri)
-          <br />2 hours daily
+          <span style={{ fontSize: "0.9em", opacity: 0.9 }}>
+            ⚡ Intensive 5-Day Program (Mon-Fri)
+            <br />
+            🎯 2 Hours/Day of Focused Learning
+            <br />
+            🌟 24/7 Online Access to Resources
+          </span>
         </>
       ),
     },
@@ -407,13 +443,17 @@ const WebDesignCourse = () => {
       title: "Class Format",
       content: (
         <>
-          <strong>Live Online Classes via Google Meet</strong>
+          <strong>🌟 Premium 2025 Learning Experience</strong>
           <br />
-          Interactive sessions
+          🎯 Live Interactive Masterclasses
           <br />
-          Screen sharing & live coding
+          💻 Real-time Code-Along Sessions
           <br />
-          Recorded for revision
+          🎥 HD Recordings for Lifetime Access
+          <br />
+          🤝 Peer Learning & Group Projects
+          <br />
+          🎮 Gamified Learning Challenges
         </>
       ),
     },
@@ -422,15 +462,19 @@ const WebDesignCourse = () => {
       title: "What You'll Build",
       content: (
         <>
-          <strong>Industry-Level Projects:</strong>
+          <strong>🚀 Build Real-World Projects:</strong>
           <br />
-          E-commerce websites
+          🛍️ Dynamic E-commerce Platforms
           <br />
-          Portfolio sites
+          ✨ Stunning Portfolio Websites
           <br />
-          React applications
+          ⚛️ Modern React Applications
           <br />
-          Responsive designs
+          📱 Mobile-First Responsive Designs
+          <br />
+          🎨 Interactive UI/UX Projects
+          <br />
+          🌐 Full-Stack Web Applications
         </>
       ),
     },
@@ -439,13 +483,19 @@ const WebDesignCourse = () => {
       title: "Q&A Support",
       content: (
         <>
-          <strong>Saturday Doubt Sessions</strong>
+          <strong>🌟 Premium Support Sessions</strong>
           <br />
-          Clear all your doubts
+          🔍 Deep-Dive Doubt Resolution
           <br />
-          One-on-one guidance
+          👨‍🏫 Personalized Mentoring Sessions
           <br />
-          Project reviews
+          💡 Expert Project Feedback
+          <br />
+          ⚡ Live Code Reviews
+          <br />
+          🎯 Career Path Guidance
+          <br />
+          🤝 Network with Industry Pros
         </>
       ),
     },
@@ -454,15 +504,17 @@ const WebDesignCourse = () => {
       title: "Requirements",
       content: (
         <>
-          <strong>What You Need:</strong>
+          <strong>🎯 Your Success Toolkit:</strong>
           <br />
-          Basic computer knowledge
+          💻 Basic computer skills - If you can browse the web, you're ready!
           <br />
-          Good internet connection
+          🌐 Reliable internet - For smooth live sessions
           <br />
-          Eagerness to learn
+          🔥 Passion to create - Your most important asset
           <br />
-          No prior coding experience needed!
+          ✨ Growth mindset - We'll teach you everything else
+          <br />
+          🚀 Zero coding experience? Perfect! Start fresh with us!
         </>
       ),
     },
@@ -471,13 +523,27 @@ const WebDesignCourse = () => {
       title: "Course Price",
       content: (
         <>
-          <strong>Market Comparison:</strong>
+          <strong>🔥 Unbeatable Value!</strong>
           <br />
-          Other courses: ₹15,000-25,000
+          <span style={{ textDecoration: "line-through", opacity: 0.7 }}>
+            Industry Standard: ₹15,000-25,000
+          </span>
           <br />
-          <strong>Our price: ₹4,999 only!</strong>
-          <br />
-          Most affordable in the market
+          <div
+            style={{
+              fontSize: "1.4em",
+              color: "#ffd700",
+              margin: "10px 0",
+            }}
+          >
+            <strong>Your Investment: Just ₹4,999! 🎉</strong>
+          </div>
+          <span style={{ fontSize: "0.9em" }}>
+            ⚡ Save up to 80% compared to other courses
+            <br />
+            💎 Premium quality at the most competitive price
+            <br />⏰ Limited time offer - Don't miss out!
+          </span>
         </>
       ),
     },
@@ -509,14 +575,39 @@ const WebDesignCourse = () => {
       {/* Hero Section */}
       <section style={styles.hero}>
         <div style={styles.heroContent}>
-          <h1 style={styles.heroTitle}>Master Web Design in 2025</h1>
+          <h1 style={styles.heroTitle} className="heroTitle">
+            Master AI-Powered Web Design in 2025
+          </h1>
           <p style={styles.heroText}>
-            Transform your career with industry-level skills in HTML5, CSS3,
-            JavaScript, React, and more!
+            Join our AI-enhanced bootcamp and master cutting-edge skills that
+            Fortune 500 companies are actively seeking. Learn to build stunning
+            websites with AI tools, create intelligent user experiences, and
+            become a next-gen web designer!
           </p>
-          <div style={styles.priceHighlight}>
-            🎯 Most Affordable Course in the Market - ₹4,999 Only!
+          <div style={styles.priceHighlight} className="price_highlight">
+            🚀 Limited Seats Available - Next AI-Powered Batch Starting Soon!
           </div>
+          <p
+            style={{
+              ...styles.heroText,
+              fontSize: "1.1rem",
+              marginTop: "20px",
+            }}
+          >
+            🤖 AI-Enhanced Learning | 🎯 Real-World Projects | 💼 ML-Powered Job
+            Matching | 🌟 Industry Experts
+          </p>
+          <p
+            style={{
+              ...styles.heroText,
+              fontSize: "0.9rem",
+              marginTop: "10px",
+              opacity: 0.8,
+            }}
+          >
+            Featuring: ChatGPT Integration | Figma AI | GitHub Copilot | AI
+            Design Tools
+          </p>
         </div>
       </section>
 
@@ -592,12 +683,44 @@ const WebDesignCourse = () => {
                 key={index}
                 data-animate
                 id={`detail-${index}`}
-                style={styles.detailCard}
+                style={
+                  index === detailsData.length - 1
+                    ? styles.priceCardHighlight
+                    : styles.detailCard
+                }
+                onMouseOver={(e) => {
+                  if (index === detailsData.length - 1) {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                    e.currentTarget.style.boxShadow =
+                      "0 0 30px 10px rgba(255, 106, 0, 0.9)";
+                  }
+                }}
+                onMouseOut={(e) => {
+                  if (index === detailsData.length - 1) {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 0 20px 5px rgba(238, 9, 121, 0.7)";
+                  }
+                }}
               >
                 <h3>
                   {detail.icon} {detail.title}
                 </h3>
                 <p>{detail.content}</p>
+                {index === detailsData.length - 1 && (
+                  <div
+                    style={{
+                      marginTop: "20px",
+                      fontSize: "1.3rem",
+                      fontWeight: "bold",
+                      color: "#fff3cd",
+                      textShadow: "0 0 10px #ffb347",
+                      animation: "pulse 2s infinite",
+                    }}
+                  >
+                    🎉 Enroll now and save big! Limited time offer! 🎉
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -610,21 +733,49 @@ const WebDesignCourse = () => {
         style={{ ...styles.section, ...styles.darkSection }}
       >
         <div>
-          <h2 style={styles.sectionTitle}>
-            Ready to Start Your Web Design Journey?
+          <h2
+            style={{
+              ...styles.sectionTitle,
+              fontSize: "3rem",
+              background: "linear-gradient(45deg, #FF6B6B, #4ECDC4)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            🚀 Transform Your Future with Web Design
           </h2>
           <p
             style={{
               textAlign: "center",
-              fontSize: "1.2rem",
-              marginBottom: "3rem",
+              fontSize: "1.4rem",
+              marginBottom: "2rem",
+              color: "#FFD93D",
             }}
           >
-            Fill out the form below and secure your spot in our February 2025
-            batch!
+            ⭐ Only 10 Spots Left for September 2025 Batch! ⭐
           </p>
 
-          <div style={styles.formContainer}>
+          <div
+            style={{
+              ...styles.formContainer,
+              background: "rgba(255,255,255,0.15)",
+            }}
+            className="form_container"
+          >
+            <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+              <span
+                style={{
+                  background: "#FF6B6B",
+                  padding: "8px 15px",
+                  borderRadius: "20px",
+                  fontSize: "0.9rem",
+                }}
+                className="earlybirdtext"
+              >
+                🎁 Early Bird Bonus: Free UI/UX Design Course Worth ₹2,999
+              </span>
+            </div>
+
             <form
               onSubmit={handleFormSubmit}
               autoComplete="on"
@@ -633,18 +784,21 @@ const WebDesignCourse = () => {
               {formError && (
                 <div
                   style={{
-                    color: "#e74c3c",
+                    color: "#FF6B6B",
                     marginBottom: "15px",
                     textAlign: "center",
+                    background: "rgba(255,107,107,0.1)",
+                    padding: "10px",
+                    borderRadius: "8px",
                   }}
                   role="alert"
                 >
-                  {formError}
+                  ⚠️ {formError}
                 </div>
               )}
               <div style={styles.formGroup}>
-                <label style={styles.label} htmlFor="name">
-                  Full Name *
+                <label style={{ ...styles.label, color: "#4ECDC4" }}>
+                  👤 Full Name *
                 </label>
                 <input
                   id="name"
@@ -652,15 +806,19 @@ const WebDesignCourse = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  style={styles.input}
+                  style={{
+                    ...styles.input,
+                    border: "2px solid rgba(78,205,196,0.3)",
+                  }}
                   required
                   autoComplete="name"
                   aria-label="Full Name"
+                  placeholder="Enter your full name"
                 />
               </div>
               <div style={styles.formGroup}>
-                <label style={styles.label} htmlFor="email">
-                  Email Address *
+                <label style={{ ...styles.label, color: "#4ECDC4" }}>
+                  ✉️ Email Address *
                 </label>
                 <input
                   id="email"
@@ -668,15 +826,19 @@ const WebDesignCourse = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  style={styles.input}
+                  style={{
+                    ...styles.input,
+                    border: "2px solid rgba(78,205,196,0.3)",
+                  }}
                   required
                   autoComplete="email"
                   aria-label="Email Address"
+                  placeholder="Enter your email"
                 />
               </div>
               <div style={styles.formGroup}>
-                <label style={styles.label} htmlFor="phone">
-                  Phone Number *
+                <label style={{ ...styles.label, color: "#4ECDC4" }}>
+                  📱 Phone Number *
                 </label>
                 <input
                   id="phone"
@@ -684,51 +846,69 @@ const WebDesignCourse = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  style={styles.input}
+                  style={{
+                    ...styles.input,
+                    border: "2px solid rgba(78,205,196,0.3)",
+                  }}
                   required
                   autoComplete="tel"
                   aria-label="Phone Number"
+                  placeholder="Enter your phone number"
                 />
               </div>
               <div style={styles.formGroup}>
-                <label style={styles.label} htmlFor="experience">
-                  Current Experience Level
+                <label style={{ ...styles.label, color: "#4ECDC4" }}>
+                  🎯 Your Experience Level
                 </label>
                 <select
                   id="experience"
                   name="experience"
                   value={formData.experience}
                   onChange={handleInputChange}
-                  style={styles.input}
+                  style={{
+                    ...styles.input,
+                    border: "2px solid rgba(78,205,196,0.3)",
+                  }}
                   aria-label="Current Experience Level"
                 >
-                  <option value="beginner">Complete Beginner</option>
-                  <option value="some">Some HTML/CSS Knowledge</option>
-                  <option value="intermediate">Basic Web Development</option>
+                  <option value="beginner">
+                    👶 Complete Beginner - Starting Fresh!
+                  </option>
+                  <option value="some">
+                    🌱 Some HTML/CSS - Ready to Level Up
+                  </option>
+                  <option value="intermediate">
+                    💪 Basic Web Dev - Going Professional
+                  </option>
                 </select>
               </div>
               <div style={styles.formGroup}>
-                <label style={styles.label} htmlFor="goals">
-                  What are your career goals? (Optional)
+                <label style={{ ...styles.label, color: "#4ECDC4" }}>
+                  💭 Share Your Dreams (Optional)
                 </label>
                 <textarea
                   id="goals"
                   name="goals"
                   value={formData.goals}
                   onChange={handleInputChange}
-                  style={styles.textarea}
-                  placeholder="e.g., Get a job as web developer, start freelancing, build my own projects..."
+                  style={{
+                    ...styles.textarea,
+                    border: "2px solid rgba(78,205,196,0.3)",
+                  }}
+                  placeholder="Tell us your career goals and dreams..."
                   autoComplete="off"
                   aria-label="Career Goals"
                 />
               </div>
               <button
                 type="submit"
-                style={styles.submitBtn}
+                style={{
+                  ...styles.submitBtn,
+                  background: "linear-gradient(45deg, #FF6B6B, #FFD93D)",
+                }}
                 onMouseOver={(e) => {
                   e.target.style.transform = "translateY(-2px)";
-                  e.target.style.boxShadow =
-                    "0 6px 20px rgba(231, 76, 60, 0.4)";
+                  e.target.style.boxShadow = "0 6px 20px rgba(255,107,107,0.4)";
                 }}
                 onMouseOut={(e) => {
                   e.target.style.transform = "translateY(0)";
@@ -736,34 +916,56 @@ const WebDesignCourse = () => {
                 }}
                 aria-label="Submit Enrollment Form"
               >
-                🚀 Enroll Now - Secure Your Spot!
+                🎉 Start Your Journey Now!
               </button>
               {formSuccess && (
                 <div
                   style={{
-                    color: "#27ae60",
+                    color: "#4ECDC4",
                     marginTop: "20px",
                     textAlign: "center",
+                    background: "rgba(78,205,196,0.1)",
+                    padding: "15px",
+                    borderRadius: "8px",
                   }}
                   role="status"
                 >
-                  {formSuccess}
+                  🎊 {formSuccess}
                 </div>
               )}
-              <p
+              <div
                 style={{
                   textAlign: "center",
-                  marginTop: "20px",
-                  fontSize: "0.9rem",
-                  opacity: 0.8,
+                  marginTop: "25px",
+                  padding: "15px",
+                  background: "rgba(255,217,61,0.1)",
+                  borderRadius: "8px",
                 }}
               >
-                Limited seats available. Early bird gets the best support!
-              </p>
+                <p
+                  style={{
+                    color: "#FFD93D",
+                    fontSize: "1rem",
+                    marginBottom: "5px",
+                  }}
+                >
+                  🔥 Only 10 Seats Remaining!
+                </p>
+                <p style={{ color: "#fff", fontSize: "0.9rem", opacity: 0.8 }}>
+                  Early birds get exclusive 1-on-1 mentoring sessions
+                </p>
+              </div>
             </form>
           </div>
         </div>
       </section>
+
+      {/* footer */}
+      <footer style={styles.footer}>
+        <div style={styles.footerContent}>
+          <p>© 2025 WebDesign. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };
